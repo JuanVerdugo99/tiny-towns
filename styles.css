@@ -12,6 +12,7 @@ body {
 }
 
 .logo {
+    height: 125px;
     display: grid;
     display: block;
     margin: auto;
@@ -33,7 +34,7 @@ body {
 
 .game-info {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #ffbb89;
+    color: #fff;
     font-size: 2em;
 }
 
