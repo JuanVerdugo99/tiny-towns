@@ -1,47 +1,64 @@
-var blues = ['Cottage']
-var oranges = ['Abbey', 'Chapel', 'Cloister', 'Temple']
-var reds = ['Farm','Granary','Greenhouse','Orchard']
-var greens = ['Almshouse','Feast Hall','Tavern']
-var grays = ['Fountain','Millstone','Shed','Well']
-var yellows = ['Bakery','Market','Tailor','Theater']
-var blacks = ['Factory','Trading Post','Warehouse']
+document.addEventListener('DOMContentLoaded', () => {
+var blues = ['img/cottage.jpg']
+var oranges = ['img/abbey.jpg', 'img/chapel.jpg', 'img/cloister.jpg', 'img/temple.jpg']
+var reds = ['img/farm.jpg','img/granary.jpg','img/greenhouse.jpg','img/orchard.jpg']
+var greens = ['img/almshouse.jpg','img/feasthall.jpg','img/tavern.jpg']
+var grays = ['img/fountain.jpg','img/millstone.jpg','img/shed.jpg','img/well.jpg']
+var yellows = ['img/bakery.jpg','img/market.jpg','img/tailor.jpg','img/theater.jpg']
+var blacks = ['img/factory.jpg','img/tradingpost.jpg','img/warehouse.jpg']
 var pinks = ['Architect\'s Guild', 
-			 'Archive of the Second Age',
-			 'Barrett Castle',
-			 'Cathedral of Caterina',
-			 'Fort Ironweed',
-			 'Grove University',
-			 'Mandras Palace',
-			 'Opaleye\'s Watch',
-			 'Shrine of the Elder Tree',
-			 'Silva Forum',
-			 'The Starloom',
-			 'Statue of the Boundmaker']
+				'Archive of the Second Age',
+				'Barrett Castle',
+				'Cathedral of Caterina',
+				'Fort Ironweed',
+				'Grove University',
+				'Mandras Palace',
+				'Opaleye\'s Watch',
+				'Shrine of the Elder Tree',
+				'Silva Forum',
+				'The Starloom',
+				'Statue of the Boundmaker']
 
-function newQuote() {
-	var randomNumber = Math.floor(Math.random() * (blues.length));
-	document.getElementById('blueDisplay').innerHTML = blues[randomNumber]
+var resources = ['Madera','Trigo','Ladrillo','Vidrio','Piedra']
+			
 
-	randomNumber = Math.floor(Math.random() * (oranges.length));
-	document.getElementById('orangeDisplay').innerHTML = oranges[randomNumber]
+function changeImage(){
+	var randomBlue =  Math.floor(Math.random() * blues.length);
+	document.getElementById("blueDisplay").src = blues[randomBlue];
 
-	randomNumber = Math.floor(Math.random() * (reds.length));
-	document.getElementById('redDisplay').innerHTML = reds[randomNumber]
+	var randomOranges =  Math.floor(Math.random() * oranges.length);
+	document.getElementById("orangeDisplay").src = oranges[randomOranges];
 
-	randomNumber = Math.floor(Math.random() * (greens.length));
-	document.getElementById('greenDisplay').innerHTML = greens[randomNumber]
+	var randomReds =  Math.floor(Math.random() * reds.length);
+	document.getElementById("redDisplay").src = reds[randomReds];
 
-	randomNumber = Math.floor(Math.random() * (grays.length));
-	document.getElementById('grayDisplay').innerHTML = grays[randomNumber]
+	var randomGreens =  Math.floor(Math.random() * greens.length);
+	document.getElementById("greenDisplay").src = greens[randomGreens];
 
-	randomNumber = Math.floor(Math.random() * (yellows.length));
-	document.getElementById('yellowDisplay').innerHTML = yellows[randomNumber]
+	var randomGrays =  Math.floor(Math.random() * grays.length);
+	document.getElementById("grayDisplay").src = grays[randomGrays];
 
-	randomNumber = Math.floor(Math.random() * (blacks.length));
-	document.getElementById('blackDisplay').innerHTML = blacks[randomNumber]
+	var randomYellows =  Math.floor(Math.random() * yellows.length);
+	document.getElementById("yellowDisplay").src = yellows[randomYellows];
 
-	randomNumber = Math.floor(Math.random() * (pinks.length));
-	document.getElementById('pinkDisplay').innerHTML = pinks[randomNumber] 
+	var randomBlacks =  Math.floor(Math.random() * blacks.length);
+	document.getElementById("blackDisplay").src = blacks[randomBlacks];
+
+	randomResources1 = Math.floor(Math.random() * (resources.length));
+	document.getElementById('resourceDisplay1').innerHTML = resources[randomResources1];
+
+	randomResources2 = Math.floor(Math.random() * (resources.length));
+	document.getElementById('resourceDisplay2').innerHTML = resources[randomResources2];
+
+	randomResources3 = Math.floor(Math.random() * (resources.length));
+	document.getElementById('resourceDisplay3').innerHTML = resources[randomResources3];
+
+	if (randomResources1 === 0){
+		
+	}
 }
 
-newQuote() 
+
+changeImage()
+
+})
