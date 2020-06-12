@@ -1,58 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tiny Towns</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    
+
+<body onload="check()">
+
     <img src="img/logo.png" alt="" class="logo">
-    
+
     <div class="game-info">
-        <img id="blueDisplay" alt="">
-        <img id="orangeDisplay" alt="">
-        <img id="redDisplay" alt="">
-        <img id="greenDisplay" alt="">
-        <img id="grayDisplay" alt="">
-        <img id="yellowDisplay" alt="">
-        <img id="pinkDisplay" alt="">
-        <img id="blackDisplay" alt="">
-        <img src="img/cottage.jpg" alt="">
+        <a href="#miModal">
+            <img id="blueDisplay" onclick="watchImage('blueDisplay')" alt="">
+        </a>
+        <a href="#miModal">
+            <img id="orangeDisplay" onclick="watchImage('orangeDisplay')" alt="">
+        </a>
+        <a href="#miModal">
+            <img id="redDisplay" onclick="watchImage('redDisplay')" alt="">
+        </a>
+        <a href="#miModal">
+            <img id="greenDisplay" onclick="watchImage('greenDisplay')" alt="">
+        </a>
+        <a href="#miModal">
+            <img id="grayDisplay" onclick="watchImage('grayDisplay')" alt="">
+        </a>
+        <a href="#miModal">
+            <img id="yellowDisplay" onclick="watchImage('yellowDisplay')" alt="">
+        </a>
+        <a href="#miModal">
+            <img id="pinkDisplay" onclick="watchImage('pinkDisplay')" alt="">
+        </a>
+        <a href="#miModal">
+            <img id="blackDisplay" onclick="watchImage('blackDisplay')" alt="">
+        </a>
+        <a href="#miModal">
+            <img id="pointer" src="img/cottage.jpg" onclick="watchImage('pointer')" alt="">
+        </a>
 
         <p class="info-card">Dale click a una de click a una de las cartas para saber más de ella</p>
     </div>
 
     <div class="game-container">
         <script>
-            for (var row=0; row<=3; row++) {
+            for (var row = 0; row <= 3; row++) {
 
-                for (var col=0; col<=3; col++) {
-                    document.writeln(`<div class="card">
-                    <div class="board card card-front card-face" id="box_`+ row + `_`+ col +`" >
-                        <img src="img/bush.png" class="bush bush-top-left">
-                        <img src="img/bush.png" class="bush bush-top-right">
-                        <img src="img/bush.png" class="bush bush-bottom-left">
-                        <img src="img/bush.png" class="bush bush-bottom-right">
-                    </div>
-                    
-                    </div>`);							
+                for (var col = 0; col <= 3; col++) {
+                    document.writeln(`
+                    <div class="card">
+                        <div onclick="alerta();" class="card card-front card-face" id="box_`+ row + `_` + col + `" >
+                            <img src="img/bush.png" class="bush bush-top-left">
+                            <img src="img/bush.png" class="bush bush-top-right">
+                            <img src="" onclick="play()">
+                            <img src="img/bush.png" class="bush bush-bottom-left">
+                            <img src="img/bush.png" class="bush bush-bottom-right">
+                        </div>
+                    </div>`);
                 }
-            }						
-                                    
-            </script>
+            }
+        </script>
 
         <div class="game-info-container">
             <div class="game-info2">
-                Recursos: <span id="resourceDisplay1"></span>
-                <span id="resourceDisplay2"></span>
-                <span id="resourceDisplay3"></span>
+                Recursos:
+                <span onclick="chooseResource('resourceDisplay1')" id="resourceDisplay1"></span>
+                <span onclick="chooseResource('resourceDisplay2')" id="resourceDisplay2"></span>
+                <span onclick="chooseResource('resourceDisplay3')" id="resourceDisplay3"></span>
             </div>
         </div>
 
     </div>
 
+    <div id="miModal" class="modal">
+        <div class="modal-contenido">
+            <a href="#">
+                <span class="closeModal">Cerrar</span>
+            </a>
+            <img id="image-modal">
+        </div>
+    </div>
     <script src="scripts.js"></script>
 </body>
+
 </html>

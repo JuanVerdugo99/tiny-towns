@@ -12,18 +12,17 @@ body {
 }
 
 .logo {
-    height: 125px;
     display: grid;
     display: block;
     margin: auto;
 }
 
-.game-info img {
-    height: 200px;
-    display: inline-block;
-    position: relative;
-    border-radius: 5%;
-    box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);
+.page-title {
+    color: #ff6d00;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: normal;
+    text-align: center;
+    font-size: 6em;
 }
 
 .game-info-container {
@@ -34,20 +33,8 @@ body {
 
 .game-info {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #fff;
-    font-size: 1em;
-    text-align: center;
-}
-
-.game-info2 {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: #fff;
-    font-size: 1.5em;
-    text-align: center;
-}
-
-.info-card {
-    margin: auto 0;
+    color: #ffbb89;
+    font-size: 2em;
 }
 
 .game-container {
@@ -64,7 +51,6 @@ body {
     border-radius: 12px;
     height: 175px;
     width:  105px;
-    cursor: pointer;
 }
 
 .card-face {
@@ -108,40 +94,4 @@ body {
     transform: rotate(270deg);
     bottom: 0;
     right: 0;
-}
-
-.modal-contenido{
-    width:300px;
-    padding: 10px 20px;
-    margin: 5% auto;
-    position: relative;
-    display: flex;
-}
-
-.modal{
-    background-color: rgba(0,0,0,.8);
-    position:fixed;
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
-    opacity:0;
-    pointer-events:none;
-    transition: all 1s;
-}
-
-#miModal:target{
-    opacity:1;
-    pointer-events:auto;
-}
-
-.closeModal{
-    margin: 3px;
-    border: 1px solid white;
-    display: block;
-    float: left;
-    color: white;
-    background: black;
-    border-radius: 11px;
-    padding: 5px;
 }
