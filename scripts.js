@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+var board = document.getElementsByClassName(" card");
+
 var blues = ['img/cottage.jpg']
 var oranges = ['img/abbey.jpg', 'img/chapel.jpg', 'img/cloister.jpg', 'img/temple.jpg']
 var reds = ['img/farm.jpg','img/granary.jpg','img/greenhouse.jpg','img/orchard.jpg']
@@ -20,6 +23,8 @@ var pinks = ['Architect\'s Guild',
 				'Statue of the Boundmaker']
 
 var resources = ['Madera','Trigo','Ladrillo','Vidrio','Piedra']
+
+
 			
 
 function changeImage(){
@@ -44,21 +49,120 @@ function changeImage(){
 	var randomBlacks =  Math.floor(Math.random() * blacks.length);
 	document.getElementById("blackDisplay").src = blacks[randomBlacks];
 
+}
+
+function changeResources(){
 	randomResources1 = Math.floor(Math.random() * (resources.length));
-	document.getElementById('resourceDisplay1').innerHTML = resources[randomResources1];
+
+	if (randomResources1 == 0) {
+		document.getElementById('resourceDisplay1').innerHTML = "<button id='wood' class='button' style='background-color: #4B1610; border: 1px solid black; margin: 10px; padding: 5px; color: #fff;'>  Madera </button>";
+	} else if (randomResources1 == 1) {
+		document.getElementById('resourceDisplay1').innerHTML = "<button id='wheat' class='button' style='background-color: yellow; color: black; border: 1px solid black;margin: 10px;padding: 5px;'>  Trigo </button>";
+	} else if (randomResources1 == 2) {
+		document.getElementById('resourceDisplay1').innerHTML = "<button id='brick'class='button' style='background-color: red; border: 1px solid black;margin: 10px;padding: 5px;color: #fff;'>  Ladrillo </button>";
+	} else if (randomResources1 == 3) {	
+		document.getElementById('resourceDisplay1').innerHTML = "<button id='glass' class='button' style='background-color: blue; border: 1px solid black;margin: 10px;padding: 5px;color: #fff;'>  Vidrio </button>";
+	} else if (randomResources1 == 4) {
+		document.getElementById('resourceDisplay1').innerHTML = "<button id='stone' class='button' style='background-color: gray; border: 1px solid black;margin: 10px;padding: 5px;'>  Piedra </button>";
+	}
 
 	randomResources2 = Math.floor(Math.random() * (resources.length));
-	document.getElementById('resourceDisplay2').innerHTML = resources[randomResources2];
+	
+	if (randomResources2 == 0) {
+		document.getElementById('resourceDisplay2').innerHTML = "<button  id='wood' class='button' style='background-color: #4B1610; border: 1px solid black;margin: 10px;padding: 5px;color: #fff;'>  Madera </button>";
+	} else if (randomResources2 == 1) {
+		document.getElementById('resourceDisplay2').innerHTML = "<button  id='wheat' class='button' style='background-color: yellow; color: black; border: 1px solid black;margin: 10px;padding: 5px;'>  Trigo </button>";
+	} else if (randomResources2 == 2) {
+		document.getElementById('resourceDisplay2').innerHTML = "<button  id='brick' class='button' style='background-color: red; border: 1px solid black;margin: 10px;padding: 5px;color: #fff;'>  Ladrillo </button>";
+	} else if (randomResources2 == 3) {
+		document.getElementById('resourceDisplay2').innerHTML = "<button  id='glass' class='button' style='background-color: blue; border: 1px solid black;margin: 10px;padding: 5px;color: #fff;'>  Vidrio </button>";
+	} else if (randomResources2 == 4) {
+		document.getElementById('resourceDisplay2').innerHTML = "<button  id='stone' class='button' style='background-color: gray; border: 1px solid black;margin: 10px;padding: 5px;'>  Piedra </button>";
+	}
 
 	randomResources3 = Math.floor(Math.random() * (resources.length));
-	document.getElementById('resourceDisplay3').innerHTML = resources[randomResources3];
+	
+	if (randomResources3 == 0) {
+		document.getElementById('resourceDisplay3').innerHTML = `<button id="wood" class="button" style='background-color: #4B1610; border: 1px solid black;margin: 10px;padding: 5px;color: #fff;'>  Madera </button>`;
+	} else if (randomResources3 == 1) {
+		document.getElementById('resourceDisplay3').innerHTML = "<button id='wheat' class='button' style='background-color: yellow; color: black; border: 1px solid black;margin: 10px;padding: 5px;'>  Trigo </button>";
+	} else if (randomResources3 == 2) {
+		document.getElementById('resourceDisplay3').innerHTML = "<button id='brick' class='button'  style='background-color: red; border: 1px solid black;margin: 10px;padding: 5px;color: #fff;'>  Ladrillo </button>";
+	} else if (randomResources3 == 3) {
+		document.getElementById('resourceDisplay3').innerHTML = "<button id='glass' class='button'  style='background-color: blue; border: 1px solid black;margin: 10px;padding: 5px;color: #fff;'>  Vidrio </button>";
+	} else if (randomResources3 == 4) {
+		document.getElementById('resourceDisplay3').innerHTML = "<button id='stone' class='button' style='background-color: gray; border: 1px solid black;margin: 10px; padding: 5px;'>  Piedra </button>";
+	}
+	
+}
 
-	if (randomResources1 === 0){
-		
+changeResources();
+changeImage();
+
+var botones = document.getElementsByClassName('button');;
+
+for(var i = 0; i < botones.length; i++){
+  botones[i].addEventListener('click', chooseResource);
+}
+
+function capturar(){
+  console.log(this.id);
+}
+
+function chooseResource(){
+	if(this.id == 'wood'){
+		displayBuild(1);
+		console.log(1)
+	} else if(this.id == 'wheat'){
+		displayBuild(2);
+		console.log(2);
+	} else if(this.id == 'brick'){
+		displayBuild(2);
+		console.log(2);
+	} else if(this.id == 'glass'){
+		displayBuild(2);
+		console.log(2);
+	} else if(this.id == 'stone'){
+		displayBuild(2);
+		console.log(2);
 	}
 }
 
 
-changeImage()
+
+/*function displayBuild(valueResource) {
+	if (valueResource == 2){
+		document.getElementById('box_0_0').innerHTML = `<img src='img/red.png'></img>
+		<img src="img/bush.png" class="bush bush-top-left">
+                        <img src="img/bush.png" class="bush bush-top-right">
+                        <img src="img/bush.png" class="bush bush-bottom-left">
+						<img src="img/bush.png" class="bush bush-bottom-right">`;
+		} else if (chooseResource() == 2){
+		document.getElementById('box_0_0').innerHTML = `<img src='img/red.png'></img>
+		<img src="img/bush.png" class="bush bush-top-left">
+                        <img src="img/bush.png" class="bush bush-top-right">
+                        <img src="img/bush.png" class="bush bush-bottom-left">
+						<img src="img/bush.png" class="bush bush-bottom-right">`;
+		} else if (chooseResource() == 2){
+		document.getElementById('box_0_0').innerHTML = `<img src='img/red.png'></img>
+		<img src="img/bush.png" class="bush bush-top-left">
+                        <img src="img/bush.png" class="bush bush-top-right">
+                        <img src="img/bush.png" class="bush bush-bottom-left">
+						<img src="img/bush.png" class="bush bush-bottom-right">`;
+		} else if (chooseResource() == 2){
+		document.getElementById('box_0_0').innerHTML = `<img src='img/red.png'></img>
+		<img src="img/bush.png" class="bush bush-top-left">
+                        <img src="img/bush.png" class="bush bush-top-right">
+                        <img src="img/bush.png" class="bush bush-bottom-left">
+						<img src="img/bush.png" class="bush bush-bottom-right">`;
+		} else if (chooseResource() == 2){
+			document.getElementById('box_0_0').innerHTML = `<img src='img/red.png'></img>
+			<img src="img/bush.png" class="bush bush-top-left">
+							<img src="img/bush.png" class="bush bush-top-right">
+							<img src="img/bush.png" class="bush bush-bottom-left">
+							<img src="img/bush.png" class="bush bush-bottom-right">`;
+			}
+		}*/
+		
 
 })

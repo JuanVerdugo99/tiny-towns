@@ -64,6 +64,7 @@ body {
     border-radius: 12px;
     height: 175px;
     width:  105px;
+    cursor: pointer;
 }
 
 .card-face {
@@ -108,3 +109,4 @@ body {
     bottom: 0;
     right: 0;
 }
+
