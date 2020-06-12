@@ -1,14 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-var board = document.getElementsByClassName(" card");
+var board = document.getElementsByClassName("board");
 
-var blues = ['img/cottage.jpg']
-var oranges = ['img/abbey.jpg', 'img/chapel.jpg', 'img/cloister.jpg', 'img/temple.jpg']
-var reds = ['img/farm.jpg','img/granary.jpg','img/greenhouse.jpg','img/orchard.jpg']
-var greens = ['img/almshouse.jpg','img/feasthall.jpg','img/tavern.jpg']
-var grays = ['img/fountain.jpg','img/millstone.jpg','img/shed.jpg','img/well.jpg']
-var yellows = ['img/bakery.jpg','img/market.jpg','img/tailor.jpg','img/theater.jpg']
-var blacks = ['img/factory.jpg','img/tradingpost.jpg','img/warehouse.jpg']
+var boardArray =[];
+for (var i=0; i<=3; i++) {
+	boardArray[i] = [];
+	for (x=0; x<=3; x++) {
+		boardArray[i][x] = 0;
+	}	
+}	
+
+var blues = ['img/cottage.jpg'];
+var oranges = ['img/abbey.jpg', 'img/chapel.jpg', 'img/cloister.jpg', 'img/temple.jpg'];
+var reds = ['img/farm.jpg','img/granary.jpg','img/greenhouse.jpg','img/orchard.jpg'];
+var greens = ['img/almshouse.jpg','img/feasthall.jpg','img/tavern.jpg'];
+var grays = ['img/fountain.jpg','img/millstone.jpg','img/shed.jpg','img/well.jpg'];
+var yellows = ['img/bakery.jpg','img/market.jpg','img/tailor.jpg','img/theater.jpg'];
+var blacks = ['img/factory.jpg','img/tradingpost.jpg','img/warehouse.jpg'];
 var pinks = ['Architect\'s Guild', 
 				'Archive of the Second Age',
 				'Barrett Castle',
@@ -20,9 +28,9 @@ var pinks = ['Architect\'s Guild',
 				'Shrine of the Elder Tree',
 				'Silva Forum',
 				'The Starloom',
-				'Statue of the Boundmaker']
+				'Statue of the Boundmaker'];
 
-var resources = ['Madera','Trigo','Ladrillo','Vidrio','Piedra']
+var resources = ['Madera','Trigo','Ladrillo','Vidrio','Piedra'];
 
 
 			
@@ -164,5 +172,118 @@ function chooseResource(){
 			}
 		}*/
 		
+
+function conditionalCottage(){
+	for(var row=0; row<boardArray.length; row++){
+		for(let col=0; col<boardArray.length; col++){
+			if(col<3){
+				if((boardArray[row][col] === 3) && (boardArray[row][(col+1)] === 4)){
+					
+					if(row>0){
+						if((boardArray[(row-1)][(col+1)] === 2)){
+							alert("Cottage H1");
+						}
+					}
+					if(row<3){
+						if((boardArray[(row+1)][(col+1)] === 2)){
+							alert("Cottage H2");
+						}
+					}
+				}
+			}
+			if(col>0){
+				if((boardArray[row][col] === 3) && (boardArray[row][(col-1)] === 4)){
+				
+					if(x>0){
+						if((boardArray[(row-1)][(col-1)] === 2)){
+							alert("Cottage H3");
+						}
+					}
+					if(x<3){
+						if((boardArray[(row+1)][(col-1)] === 2)){
+							alert("Cottage H4");
+						}
+					}
+				}
+			}
+		}
+	}
+	for(let y=0; y<boardArray.length; y++){
+		for(let x=0; x<boardArray.length; x++){
+			if(x>0){
+				if((boardArray[x][y] === 3) && (boardArray[(x-1)][y] === 4)){
+				
+					if((boardArray[(x-1)][(y+1)] === 2)){
+						alert("Cottage V1");
+					}
+					if((boardArray[(x-1)][(y-1)] === 2)){
+						alert("Cottage V2");
+					}
+				}
+			}
+			if((boardArray[x][y] === 3) && (boardArray[(x+1)][y] === 4)){
+			
+				if((boardArray[(x+1)][(y+1)] === 2)){
+					alert("Cottage V3");
+				}
+				if((boardArray[(x+1)][(y-1)] === 2)){
+					alert("Cottage V4");
+				}
+			}
+		}
+	}
+}
+
+function conditionAbbey(){
+	for(let x=0; x<myarray.length; x++){
+		for(let y=0; y<myarray.length; y++){
+			if((myarray[x][y] === 5) && (myarray[x][(y-1)] === 5) && (myarray[x][(y-2)] === 3)){
+				if(x>0){
+					if ((myarray[(x-1)][y] === 4)){
+						alert("Abbey H1");
+					}
+				}
+				if((myarray[(x+1)][y] === 4)){
+					alert("Abbey H2");
+				}
+			}
+			if((myarray[x][y] === 5) && (myarray[x][(y+1)] === 5) && (myarray[x][(y+2)] === 3)){
+				if(x>0){
+					if ((myarray[(x-1)][y] === 4)){
+						alert("Abbey H3");
+					}
+				}
+				if((myarray[(x+1)][y] === 4)){
+					alert("Abbey H4");
+				}
+			}
+		}
+	}
+	for(let y=0; y<myarray.length; y++){
+		for(let x=0; x<myarray.length; x++){
+			if(x<2){
+				if((myarray[x][y] === 5) && (myarray[(x+1)][y] === 5) && (myarray[(x+2)][y] === 3)){
+					if((myarray[x][(y+1)] === 4)){
+						alert("Abbey V1");
+					}
+					if((myarray[x][(y-1)] === 4)){
+						alert("Abbey V2");
+					}
+				}
+			}
+			if(x>1){
+				if((myarray[x][y] === 5) && (myarray[(x-1)][y] === 5) && (myarray[(x-2)][y] === 3)){
+					if((myarray[x][(y+1)] === 4)){
+						alert("Abbey V3");
+					}
+					if((myarray[x][(y-1)] === 4)){
+						alert("Abbey V4");
+					}
+				}
+			}
+		}
+	}
+}
+	
 
 })
