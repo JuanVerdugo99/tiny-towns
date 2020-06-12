@@ -14,13 +14,13 @@
 
     <div class="game-info">
         <a href="#miModal">
-            <img id="blueDisplay" onclick="watchImage('blueDisplay')" alt="">
+            <img id="blueDisplay" onclick="watchImage('blueDisplay', 0)" alt="">
         </a>
         <a href="#miModal">
-            <img id="orangeDisplay" onclick="watchImage('orangeDisplay')" alt="">
+            <img id="orangeDisplay" onclick="watchImage('orangeDisplay', 1)" alt="">
         </a>
         <a href="#miModal">
-            <img id="redDisplay" onclick="watchImage('redDisplay')" alt="">
+            <img id="redDisplay" onclick="watchImage('redDisplay', 2)" alt="">
         </a>
         <a href="#miModal">
             <img id="greenDisplay" onclick="watchImage('greenDisplay')" alt="">
@@ -43,43 +43,51 @@
 
         <p class="info-card">Dale click a una de click a una de las cartas para saber más de ella</p>
     </div>
+    
+    <div class="resources game-info-container">
+        <div class="game-info2">
+            Recursos:
+            <span onclick="chooseResource('resourceDisplay1')" id="resourceDisplay1"></span>
+            <span onclick="chooseResource('resourceDisplay2')" id="resourceDisplay2"></span>
+            <span onclick="chooseResource('resourceDisplay3')" id="resourceDisplay3"></span>
+        </div>
+    </div>
 
     <div class="game-container">
         <script>
+            let idCard = 0;
             for (var row = 0; row <= 3; row++) {
 
                 for (var col = 0; col <= 3; col++) {
                     document.writeln(`
                     <div class="card">
-                        <div onclick="alerta();" class="card card-front card-face" id="box_`+ row + `_` + col + `" >
+                        <div onclick="putResource(${idCard});" class="card card-front card-face" id="box_`+ row + `_` + col + `" >
                             <img src="img/bush.png" class="bush bush-top-left">
                             <img src="img/bush.png" class="bush bush-top-right">
-                            <img src="" onclick="play()">
+                            <img class="" src="" id="${idCard}">
                             <img src="img/bush.png" class="bush bush-bottom-left">
                             <img src="img/bush.png" class="bush bush-bottom-right">
                         </div>
                     </div>`);
+                    idCard++;
                 }
             }
         </script>
-
-        <div class="game-info-container">
-            <div class="game-info2">
-                Recursos:
-                <span onclick="chooseResource('resourceDisplay1')" id="resourceDisplay1"></span>
-                <span onclick="chooseResource('resourceDisplay2')" id="resourceDisplay2"></span>
-                <span onclick="chooseResource('resourceDisplay3')" id="resourceDisplay3"></span>
-            </div>
-        </div>
-
     </div>
 
     <div id="miModal" class="modal">
         <div class="modal-contenido">
-            <a href="#">
-                <span class="closeModal">Cerrar</span>
-            </a>
-            <img id="image-modal">
+            <img id="image-modal" class="image-modal"><br>  
+            <div class="description">
+                <a href="#">
+                    <span class="closeModal">Cerrar</span>
+                </a>
+                <div class="box-description">
+                    <div id="description">
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <script src="scripts.js"></script>

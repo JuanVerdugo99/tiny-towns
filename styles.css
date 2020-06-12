@@ -26,6 +26,10 @@ body {
     box-shadow: 12px 29px 81px 0px rgba(0,0,0,0.75);
 }
 
+.resources{
+    width: 100px;
+    height: auto;
+}
 .game-info-container {
     grid-column: 1 / -1;
     display: flex;
@@ -111,7 +115,7 @@ body {
 }
 
 .modal-contenido{
-    width:300px;
+    max-width: 450px;
     padding: 10px 20px;
     margin: 5% auto;
     position: relative;
@@ -144,4 +148,35 @@ body {
     background: black;
     border-radius: 11px;
     padding: 5px;
+    margin-left: 156px;
+}
+
+.image-modal{
+    max-width: 192px;
+    border-bottom-left-radius: 11px;
+    border-top-left-radius: 11px;
+}
+
+.description{
+    background-color: white;
+    width: 221!important;
+    height: auto;
+    padding: 10px;
+    font-size: 15px;
+    border-top-right-radius: 11px;
+    border-bottom-right-radius: 11px;
+}
+
+.closeModal{
+    text-decoration: none;
+    padding: 2px;
+    font-size: 14px;
+    color: black;
+    background-color: white;
+    border-radius: 6px;
+    border: 2px solid black;
+}
+.closeModal:hover{
+    color: white;
+    background-color: black;
 }
