@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+	changeResources();
+	changeImage();
+})
 
 var board = document.getElementsByClassName(" card");
 
@@ -96,8 +99,6 @@ function changeResources(){
 	
 }
 
-changeResources();
-changeImage();
 
 var botones = document.getElementsByClassName('button');;
 
@@ -105,64 +106,105 @@ for(var i = 0; i < botones.length; i++){
   botones[i].addEventListener('click', chooseResource);
 }
 
-function capturar(){
-  console.log(this.id);
+
+// function chooseResource(){
+// 	if(this.id == 'wood'){
+// 		displayBuild(1);
+// 		console.log(1)
+// 	} else if(this.id == 'wheat'){
+// 		displayBuild(2);
+// 		console.log(2);
+// 	} else if(this.id == 'brick'){
+// 		displayBuild(2);
+// 		console.log(2);
+// 	} else if(this.id == 'glass'){
+// 		displayBuild(2);
+// 		console.log(2);
+// 	} else if(this.id == 'stone'){
+// 		displayBuild(2);
+// 		console.log(2);
+// 	}
+// }
+
+
+
+function displayBuild(valueResource) {
+	if (valueResource == 2){
+		document.getElementById('box_0_0').innerHTML = `
+		<img src='img/red.png'></img>
+		<img src="img/bush.png" class="bush bush-top-left">
+		<img src="img/bush.png" class="bush bush-top-right">
+		<img src="img/bush.png" class="bush bush-bottom-left">
+		<img src="img/bush.png" class="bush bush-bottom-right">`;
+	} else if (chooseResource() == 2){
+		document.getElementById('box_0_0').innerHTML = `
+		<img src='img/red.png'></img>
+		<img src="img/bush.png" class="bush bush-top-left">
+		<img src="img/bush.png" class="bush bush-top-right">
+		<img src="img/bush.png" class="bush bush-bottom-left">
+		<img src="img/bush.png" class="bush bush-bottom-right">`;
+	} else if (chooseResource() == 2){
+		document.getElementById('box_0_0').innerHTML = `
+		<img src='img/red.png'></img>
+		<img src="img/bush.png" class="bush bush-top-left">
+		<img src="img/bush.png" class="bush bush-top-right">
+		<img src="img/bush.png" class="bush bush-bottom-left">
+		<img src="img/bush.png" class="bush bush-bottom-right">`;
+	} else if (chooseResource() == 2){
+		document.getElementById('box_0_0').innerHTML = `
+		<img src='img/red.png'></img>
+		<img src="img/bush.png" class="bush bush-top-left">
+		<img src="img/bush.png" class="bush bush-top-right">
+		<img src="img/bush.png" class="bush bush-bottom-left">
+		<img src="img/bush.png" class="bush bush-bottom-right">`;
+	} else if (chooseResource() == 2){
+		document.getElementById('box_0_0').innerHTML = `
+		<img src='img/red.png'></img>
+		<img src="img/bush.png" class="bush bush-top-left">
+		<img src="img/bush.png" class="bush bush-top-right">
+		<img src="img/bush.png" class="bush bush-bottom-left">
+		<img src="img/bush.png" class="bush bush-bottom-right">`;
+	}
+}
+		
+
+	
+function watchImage(id) {
+	let src = document.getElementById(id).getAttribute('src');
+	document.getElementById('image-modal').src = src;
 }
 
-function chooseResource(){
-	if(this.id == 'wood'){
-		displayBuild(1);
-		console.log(1)
-	} else if(this.id == 'wheat'){
-		displayBuild(2);
-		console.log(2);
-	} else if(this.id == 'brick'){
-		displayBuild(2);
-		console.log(2);
-	} else if(this.id == 'glass'){
-		displayBuild(2);
-		console.log(2);
-	} else if(this.id == 'stone'){
-		displayBuild(2);
-		console.log(2);
+function check(){
+	if(window.location.hash == '#miModal'){
+		window.location = './index.html';
 	}
 }
 
-
-
-/*function displayBuild(valueResource) {
-	if (valueResource == 2){
-		document.getElementById('box_0_0').innerHTML = `<img src='img/red.png'></img>
-		<img src="img/bush.png" class="bush bush-top-left">
-                        <img src="img/bush.png" class="bush bush-top-right">
-                        <img src="img/bush.png" class="bush bush-bottom-left">
-						<img src="img/bush.png" class="bush bush-bottom-right">`;
-		} else if (chooseResource() == 2){
-		document.getElementById('box_0_0').innerHTML = `<img src='img/red.png'></img>
-		<img src="img/bush.png" class="bush bush-top-left">
-                        <img src="img/bush.png" class="bush bush-top-right">
-                        <img src="img/bush.png" class="bush bush-bottom-left">
-						<img src="img/bush.png" class="bush bush-bottom-right">`;
-		} else if (chooseResource() == 2){
-		document.getElementById('box_0_0').innerHTML = `<img src='img/red.png'></img>
-		<img src="img/bush.png" class="bush bush-top-left">
-                        <img src="img/bush.png" class="bush bush-top-right">
-                        <img src="img/bush.png" class="bush bush-bottom-left">
-						<img src="img/bush.png" class="bush bush-bottom-right">`;
-		} else if (chooseResource() == 2){
-		document.getElementById('box_0_0').innerHTML = `<img src='img/red.png'></img>
-		<img src="img/bush.png" class="bush bush-top-left">
-                        <img src="img/bush.png" class="bush bush-top-right">
-                        <img src="img/bush.png" class="bush bush-bottom-left">
-						<img src="img/bush.png" class="bush bush-bottom-right">`;
-		} else if (chooseResource() == 2){
-			document.getElementById('box_0_0').innerHTML = `<img src='img/red.png'></img>
-			<img src="img/bush.png" class="bush bush-top-left">
-							<img src="img/bush.png" class="bush bush-top-right">
-							<img src="img/bush.png" class="bush bush-bottom-left">
-							<img src="img/bush.png" class="bush bush-bottom-right">`;
-			}
-		}*/
-		
-
-})
+var resource;
+function chooseResource(id) {
+	let button;
+	let x = document.getElementById(id).innerHTML;
+	x = x.split(' ');
+	x = x[1].split('"');
+	resource = x[1];
+	console.log(resource);
+	randomResource = Math.floor(Math.random() * (resources.length));
+	switch (randomResource) {
+		case 0:
+			button = "<button  id='wood' class='button' style='background-color: #4B1610; border: 1px solid black;margin: 10px;padding: 5px;color: #fff;'>  Madera </button>";
+			break;
+		case 1:
+			button = "<button  id='wheat' class='button' style='background-color: yellow; color: black; border: 1px solid black;margin: 10px;padding: 5px;'>  Trigo </button>";
+			break;
+		case 2:
+			button = "<button  id='brick' class='button' style='background-color: red; border: 1px solid black;margin: 10px;padding: 5px;color: #fff;'>  Ladrillo </button>";
+			break;
+		case 3:
+			button = "<button  id='glass' class='button' style='background-color: blue; border: 1px solid black;margin: 10px;padding: 5px;color: #fff;'>  Vidrio </button>";
+			break;
+		case 4:
+			button = "<button  id='stone' class='button' style='background-color: gray; border: 1px solid black;margin: 10px;padding: 5px;'>  Piedra </button>";
+			break;
+	}
+	document.getElementById(id).innerHTML = button
+}
