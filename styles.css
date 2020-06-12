@@ -20,11 +20,31 @@ body {
 }
 
 .logo {
-    margin-left: 70px;
+    height: 120px;
+    margin-left: 20px;
+}
+
+.masterConst {
+    color: yellow;
+    font-size: 20px;
+    background: #3d2200;
+    border-style: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 75px;
+    border: 1px solid #ffffff;
 }
 
 .centerSpan {
     margin-top: 15px;
+}
+
+.masterInfo {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #fff;
+    font-size: 17px;
+    margin-top: 10px;
+    text-align: center;
 }
 
 .resources{

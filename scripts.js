@@ -19,18 +19,16 @@ var yellows = ['img/bakery.jpg','img/market.jpg','img/tailor.jpg','img/theater.j
 
 var blacks = ['img/factory.jpg','img/tradingpost.jpg','img/warehouse.jpg']
 
-var pinks = ['Architect\'s Guild', 
-				'Archive of the Second Age',
-				'Barrett Castle',
-				'Cathedral of Caterina',
-				'Fort Ironweed',
-				'Grove University',
-				'Mandras Palace',
-				'Opaleye\'s Watch',
-				'Shrine of the Elder Tree',
-				'Silva Forum',
-				'The Starloom',
-				'Statue of the Boundmaker']
+var pinks = ['img/architectsguild.jpg', 
+				'img/archiveofthesecondage.jpg',
+				'img/barrettcastle.jpg',
+				'img/cathedralofcaterina.jpg',
+				'img/groveuniversity.jpg',
+				'img/mandraspalace.jpg',
+				'img/shrineoftheeldertree.jpg',
+				'img/silvaforum.jpg',
+				'img/thestarloom.jpg',
+				'img/statueofthebondmaker.jpg']
 
 var resources = ['Madera','Trigo','Ladrillo','Vidrio','Piedra']
 
@@ -58,6 +56,9 @@ function changeImage(){
 
 	var randomBlacks =  Math.floor(Math.random() * blacks.length);
 	document.getElementById("blackDisplay").src = blacks[randomBlacks];
+
+	var randomPinks =  Math.floor(Math.random() * pinks.length);
+	document.getElementById("pinkDisplay").src = pinks[randomPinks];
 
 }
 
