@@ -1,64 +1,67 @@
 var tableGame = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
-
-document.addEventListener('DOMContentLoaded', () => {
-	changeResources();
-	changeImage();
-})
+changeResources();
+changeImage();
 
 function changeImage() {
-	var randomBlue = Math.floor(Math.random() * blues.length);
-	document.getElementById("bluesDisplay").src = blues[randomBlue].name;
-	document.getElementById("bluesDisplay").classList.add(randomBlue);
+	var random = Math.floor(Math.random() * blues.length);
+	document.getElementById("bluesDisplay").src = blues[random].name;
+	document.getElementById("bluesDisplay").classList.add(random);
 
-	var randomOranges = Math.floor(Math.random() * oranges.length);
-	document.getElementById("orangesDisplay").src = oranges[randomOranges].name;
-	document.getElementById("orangesDisplay").classList.add(randomOranges);
+	random = Math.floor(Math.random() * oranges.length);
+	document.getElementById("orangesDisplay").src = oranges[random].name;
+	document.getElementById("orangesDisplay").classList.add(random);
 
-	var randomReds = Math.floor(Math.random() * reds.length);
-	document.getElementById("redsDisplay").src = reds[randomReds].name;
-	document.getElementById("redsDisplay").classList.add(randomReds);
+	random = Math.floor(Math.random() * reds.length);
+	document.getElementById("redsDisplay").src = reds[random].name;
+	document.getElementById("redsDisplay").classList.add(random);
 
-	var randomGreens = Math.floor(Math.random() * greens.length);
-	document.getElementById("greensDisplay").src = greens[randomGreens].name;
-	document.getElementById("greensDisplay").classList.add(randomGreens);
+	random = Math.floor(Math.random() * greens.length);
+	document.getElementById("greensDisplay").src = greens[random].name;
+	document.getElementById("greensDisplay").classList.add(random);
 
-	var randomGrays = Math.floor(Math.random() * grays.length);
-	document.getElementById("graysDisplay").src = grays[randomGrays].name;
-	document.getElementById("graysDisplay").classList.add(randomGrays);
+	random = Math.floor(Math.random() * grays.length);
+	document.getElementById("graysDisplay").src = grays[random].name;
+	document.getElementById("graysDisplay").classList.add(random);
 
-	var randomYellows = Math.floor(Math.random() * yellows.length);
-	document.getElementById("yellowsDisplay").src = yellows[randomYellows].name;
-	document.getElementById("yellowsDisplay").classList.add(randomYellows);
+	random = Math.floor(Math.random() * yellows.length);
+	document.getElementById("yellowsDisplay").src = yellows[random].name;
+	document.getElementById("yellowsDisplay").classList.add(random);
 
-	var randomBlacks = Math.floor(Math.random() * blacks.length);
-	document.getElementById("blacksDisplay").src = blacks[randomBlacks].name;
-	document.getElementById("blacksDisplay").classList.add(randomBlacks);
+	random = Math.floor(Math.random() * blacks.length);
+	document.getElementById("blacksDisplay").src = blacks[random].name;
+	document.getElementById("blacksDisplay").classList.add(random);
 
-	var randomPinks = Math.floor(Math.random() * pinks.length);
-	document.getElementById("pinksDisplay").src = pinks[randomPinks].name;
-	document.getElementById("pinksDisplay").classList.add(randomPinks);
+	random = Math.floor(Math.random() * pinks.length);
+	document.getElementById("pinksDisplay").src = pinks[random].name;
+	document.getElementById("pinksDisplay").classList.add(random);
 }
 
-function changeResources() {
+function changeResources(indexToChange) {
 	for (let index = 1; index <= 3; index++) {
-			let randomResource = Math.floor(Math.random() * (resources.length));
+		let button;
+		let randomResource = Math.floor(Math.random() * (resources.length));
 		switch (randomResource) {
 			case 0:
-				document.getElementById('resourceDisplay'+index).innerHTML = "<button id='wood' class='button' style='background-color: #7A3734; border: 1px solid black; margin: 10px; padding: 5px; color: #fff;'>  Madera </button>";
+				button = "<button id='wood' class='button' style='background-color: #7A3734; border: 1px solid black; margin: 10px; padding: 5px; color: #fff;'>  Madera </button>";
 				break;
 			case 1:
-				document.getElementById('resourceDisplay'+index).innerHTML = "<button id='wheat' class='button' style='background-color: #FCAE1F; color: black; border: 1px solid black;margin: 10px;padding: 5px;'>  Trigo </button>";
+				button = "<button id='wheat' class='button' style='background-color: #FCAE1F; color: black; border: 1px solid black;margin: 10px;padding: 5px;'>  Trigo </button>";
 				break;
 			case 2:
-				document.getElementById('resourceDisplay'+index).innerHTML = "<button id='brick'class='button' style='background-color: #F73324; border: 1px solid black;margin: 10px;padding: 5px;color: #fff;'>  Ladrillo </button>";
+				button = "<button id='brick'class='button' style='background-color: #F73324; border: 1px solid black;margin: 10px;padding: 5px;color: #fff;'>  Ladrillo </button>";
 				break;
 			case 3:
-				document.getElementById('resourceDisplay'+index).innerHTML = "<button id='glass' class='button' style='background-color: #00949E; border: 1px solid black;margin: 10px;padding: 5px;color: #fff;'>  Vidrio </button>";
+				button = "<button id='glass' class='button' style='background-color: #00949E; border: 1px solid black;margin: 10px;padding: 5px;color: #fff;'>  Vidrio </button>";
 				break;
 			case 4:
-				document.getElementById('resourceDisplay'+index).innerHTML = "<button id='stone' class='button' style='background-color: #A59E87; border: 1px solid black;margin: 10px;padding: 5px;'>  Piedra </button>";
+				button = "<button id='stone' class='button' style='background-color: #A59E87; border: 1px solid black;margin: 10px;padding: 5px;'>  Piedra </button>";
 				break;
 		}
+		if (indexToChange) {
+			document.getElementById(indexToChange).innerHTML = button;
+			return ;
+		}
+		document.getElementById('resourceDisplay'+index).innerHTML = button;
 	}
 }
 
@@ -90,25 +93,7 @@ function chooseResource(id) {
 		x = x[1].split('"');
 		resource = x[1];
 		console.log(resource);
-		randomResource = Math.floor(Math.random() * (resources.length));
-		switch (randomResource) {
-			case 0:
-				button = "<button  id='wood' class='button' style='background-color: #4B1610; border: 1px solid black;margin: 10px;padding: 5px;color: #fff;'>  Madera </button>";
-				break;
-			case 1:
-				button = "<button  id='wheat' class='button' style='background-color: #FCAE1F; color: black; border: 1px solid black;margin: 10px;padding: 5px;'>  Trigo </button>";
-				break;
-			case 2:
-				button = "<button  id='brick' class='button' style='background-color: #F73324; border: 1px solid black;margin: 10px;padding: 5px;color: #fff;'>  Ladrillo </button>";
-				break;
-			case 3:
-				button = "<button  id='glass' class='button' style='background-color: #00949E; border: 1px solid black;margin: 10px;padding: 5px;color: #fff;'>  Vidrio </button>";
-				break;
-			case 4:
-				button = "<button  id='stone' class='button' style='background-color: #A59E87; border: 1px solid black;margin: 10px;padding: 5px;'>  Piedra </button>";
-				break;
-		}
-		document.getElementById(id).innerHTML = button
+		changeResources(id);
 	} else {
 		alert('Ya tienes un recurso seleccionado.');
 	}
@@ -136,14 +121,7 @@ function putResource(idCard) {
 
 var almshouseH = /-SSG.-|-.SSG-|-GSS.-|-.GSS-|-G...-S...-S...-|-.G..-.S..-.S..-|-..G.-..S.-..S.-|-...G-...S-...S-|-S...-S...-G...-|-.S..-.S..-.G..-|-..S.-..S.-..G.-|-...S-...S-...G-/;
 
-var almshouse = {
-	patron: 'SSG',
-	horizontal: /-SSG.-|-.SSG-|-GSS.-|-.GSS-/,
-	vertical: /-G...-S...-S...-|-.G..-.S..-.S..-|-..G.-..S.-..S.-|-...G-...S-...S-|-S...-S...-G...-|-.S..-.S..-.G..-|-..S.-..S.-..G.-|-...S-...S-...G-/
-}
-
 function checkTheTableGame() {
-	
 	let newTableGame = '-';
 	for (let x = 0; x < tableGame.length; x++) {
 		newTableGame += tableGame[x];
