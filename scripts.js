@@ -152,12 +152,15 @@ function chooseResource(id) {
 	}
 }
 
+var tableGame = [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '];
 function putResource(idCard) { 
 	let card = document.getElementById(idCard);
 	if (resource) {
 		if (!card.classList.contains('disabled')) {
 			card.src = './img/'+ resource +'.png'
 			card.classList.add('disabled');
+			tableGame[idCard] = resource.charAt(0).toUpperCase();
+			checkTheTableGame();
 			resource = null;
 		}else{
 			alert('Ya hay un recurso aqui.');
@@ -165,4 +168,17 @@ function putResource(idCard) {
 	}else{
 		alert('Selecciona un recurso.');
 	}
+}
+
+var almshouseH = /-SSG.-|-.SSG-|-GSS.-|-.GSS-|-G...-S...-S...-|-.G..-.S..-.S..-|-..G.-..S.-..S.-|-...G-...S-...S-|-S...-S...-G...-|-.S..-.S..-.G..-|-..S.-..S.-..G.-|-...S-...S-...G-/;
+
+function checkTheTableGame(){
+	let newTableGame = '-';
+	for (let x = 0; x < tableGame.length; x++) {
+		newTableGame += tableGame[x];
+		if (x == 3 || x == 7 || x == 11 || x == 15) {
+			newTableGame += '-';
+		}
+	}
+	console.log(almshouseH.test(newTableGame));
 }
