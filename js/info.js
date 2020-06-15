@@ -1,3 +1,5 @@
+var resources = ['Madera','Trigo','Ladrillo','Vidrio','Piedra'];
+
 var blues = [
     {
         name: 'img/cottage.jpg',
@@ -62,7 +64,8 @@ var oranges = [
 var greens = [
     {
         name:'img/almshouse.jpg',
-        description:'La puntuación máxima de Almshouse es 26 VP. Si construyes más de 6 Almshouses, la puntuación total de Almshouse sigue siendo 26 VP'
+        description:'La puntuación máxima de Almshouse es 26 VP. Si construyes más de 6 Almshouses, la puntuación total de Almshouse sigue siendo 26 VP',
+        expression: /-SSG.-|-.SSG-|-GSS.-|-.GSS-|-G...-S...-S...-|-.G..-.S..-.S..-|-..G.-..S.-..S.-|-...G-...S-...S-|-S...-S...-G...-|-.S..-.S..-.G..-|-..S.-..S.-..G.-|-...S-...S-...G-/
     },
     {
         name:'img/feasthall.jpg',
@@ -91,19 +94,19 @@ var yellows = [
         description:'La puntuación de un Theater es el número total de tipos de edificio únicos además del Theater que comparten fila o Columna con ese Theater, por un máximo de 6 VP Si hay edificios del mismo tipo en la misma fila y columna del Theater, ese tipo de edificio sólo cuenta una vez para la puntuación del Theater. El monumento edificio cuenta como un tipo de edificio único (a menos que sea Barrett Castle, que cuenta como 2 Cottages)'
     }]
 
-    var blacks = [
-        {
-            name:'img/factory.jpg',
-            description:'Puedes elegir que varias Factories guarden el mismo recurso, pero no te proporciona ninguna ventaja'
-        },
-        {
-            name:'img/tradingpost.jpg',
-            description:'Trading Posts pueden usarse en el patrón de un edificio futuro. Cuando construyes un edificio que usó una Trading Post de ese recuadro. Puedes usar varias Trading Posts para construir un edificio, pero debe utilizarse al menos 1 recurso que no sea Trading Post'
-        },
-        {
-            name:'img/warehouse.jpg',
-            description:'Con un Warehouse puedes almacenar hasta 3 recursos poniendo los cubos en el edificio. Cuando otro jugador nombre un recurso que no quieras, coloca el recurso en tu Warehouse. Cuando hagas esto, puedes quitar un recurso de tu Warehouse y colocarlo en un recuadro vacío de tu tablero. Nunca se puede quitar un recurso en el Warehouse sin poner un nuevo recurso. Como resultado, el número de recursos en un Warehouse nunca decrecerá'
-        }]
+var blacks = [
+    {
+        name:'img/factory.jpg',
+        description:'Puedes elegir que varias Factories guarden el mismo recurso, pero no te proporciona ninguna ventaja'
+    },
+    {
+        name:'img/tradingpost.jpg',
+        description:'Trading Posts pueden usarse en el patrón de un edificio futuro. Cuando construyes un edificio que usó una Trading Post de ese recuadro. Puedes usar varias Trading Posts para construir un edificio, pero debe utilizarse al menos 1 recurso que no sea Trading Post'
+    },
+    {
+        name:'img/warehouse.jpg',
+        description:'Con un Warehouse puedes almacenar hasta 3 recursos poniendo los cubos en el edificio. Cuando otro jugador nombre un recurso que no quieras, coloca el recurso en tu Warehouse. Cuando hagas esto, puedes quitar un recurso de tu Warehouse y colocarlo en un recuadro vacío de tu tablero. Nunca se puede quitar un recurso en el Warehouse sin poner un nuevo recurso. Como resultado, el número de recursos en un Warehouse nunca decrecerá'
+    }]
 
 var pinks = [
     {

@@ -13,6 +13,7 @@ body {
 
 .logo {
     height: 125px;
+    display: grid;
     display: block;
     margin: auto;
     margin-bottom: 10px;
@@ -243,13 +244,13 @@ body {
     
     .grid {
         display: grid;
-        grid-template-columns: 30% 35% 30% 23%;
+        grid-template-columns: 33% 43% 13% 13%;
         grid-template-rows: 50px 50px auto;
         margin-top: 0;
     }
-
+    
     .logo {
-        margin-top: 50px;
+        margin-left: 10px;
     }
     
     .masterConst {
@@ -310,6 +311,7 @@ body {
         color: #fff;
         font-size: 15px;
         margin-left: 75px;
+        margin-top: 50px;
         
     }
     
