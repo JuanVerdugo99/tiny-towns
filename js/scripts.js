@@ -132,6 +132,11 @@ function checkTheTableGame() {
 	if (search) {
 		checkGreens(search);
 	}
+	search = graysH.exec(newTableGame);
+	if (search) {
+		checkGrays(search);
+	}
+	
 }
 
 function foundIt(positions) {
@@ -168,6 +173,102 @@ function checkGreens(exec) {
 				positions = [i+4, i+8, i+12]
 				foundIt(positions);
 			}
+		}
+	}
+}
+
+function checkGrays(exec) {
+	let TG = tableGame;
+	let length = exec[0].length;
+	let positions;
+	if (length == 6) {
+		// Horizontal
+		for (let i = 0; i <= TG.length; i += 4) {
+			if (TG[i]+TG[i+1] == 'WS'| TG[i]+TG[i+1] == 'SW') {
+				positions = [i, i+1];
+				foundIt(positions);
+			}else if(TG[i+1]+TG[i+2] == 'WS'| TG[i+1]+TG[i+2] == 'SW'){
+				positions = [i+1, i+2]
+				foundIt(positions);
+			}else if(TG[i+2]+TG[i+3] == 'WS'| TG[i+2]+TG[i+3] == 'SW'){
+				positions = [i+2, i+3]
+				foundIt(positions);
+			}else if(TG[i+4]+TG[i+5] == 'WS'| TG[i+4]+TG[i+5] == 'SW'){
+				positions = [i+4, i+5]
+				foundIt(positions);
+			}else if(TG[i+5]+TG[i+6] == 'WS'| TG[i+5]+TG[i+6] == 'SW'){
+				positions = [i+5, i+6]
+				foundIt(positions);
+			}else if(TG[i+6]+TG[i+7] == 'WS'| TG[i+6]+TG[i+7] == 'SW'){
+				positions = [i+6, i+7]
+				foundIt(positions);
+			}else if(TG[i+8]+TG[i+9] == 'WS'| TG[i+8]+TG[i+9] == 'SW'){
+				positions = [i+8, i+9]
+				foundIt(positions);
+			}else if(TG[i+9]+TG[i+10] == 'WS'| TG[i+9]+TG[i+10] == 'SW'){
+				positions = [i+9, i+10]
+				foundIt(positions);
+			}else if(TG[i+10]+TG[i+11] == 'WS'| TG[i+10]+TG[i+11] == 'SW'){
+				positions = [i+10, i+11]
+				foundIt(positions);
+			}else if(TG[i+11]+TG[i+12] == 'WS'| TG[i+11]+TG[i+12] == 'SW'){
+				positions = [i+11, i+12]
+				foundIt(positions);
+			}else if(TG[i+12]+TG[i+13] == 'WS'| TG[i+12]+TG[i+13] == 'SW'){
+				positions = [i+12, i+13]
+				foundIt(positions);
+			}else if(TG[i+13]+TG[i+14] == 'WS'| TG[i+13]+TG[i+14] == 'SW'){
+				positions = [i+13, i+14]
+				foundIt(positions);
+			}else if(TG[i+14]+TG[i+15] == 'WS'| TG[i+14]+TG[i+15] == 'SW'){
+				positions = [i+14, i+15]
+				foundIt(positions);
+			}
+		}
+	}else {
+		// Vertical
+		for (let i = 0; i < 4; i++) {
+			if (TG[i]+TG[i+4] == 'WS'| TG[i]+TG[i+4] == 'SW') {
+				positions = [i, i+4];
+				foundIt(positions);
+			}else if(TG[i+4]+TG[i+8] == 'WS'| TG[i+4]+TG[i+8] == 'WS'){
+				positions = [i+4, i+8]
+				foundIt(positions);
+			}else if(TG[i+8]+TG[i+12] == 'WS'| TG[i+8]+TG[i+12] == 'SW'){
+				positions = [i+8, i+12]
+				foundIt(positions);
+			}else if(TG[i+1]+TG[i+5] == 'WS'| TG[i+1]+TG[i+5] == 'SW'){
+				positions = [i+1, i+5]
+				foundIt(positions);
+			}else if(TG[i+5]+TG[i+9] == 'WS'| TG[i+5]+TG[i+9] == 'SW'){
+				positions = [i+5, i+9]
+				foundIt(positions);
+			}else if(TG[i+9]+TG[i+13] == 'WS'| TG[i+9]+TG[i+13] == 'SW'){
+				positions = [i+9, i+13]
+				foundIt(positions);
+			}else if(TG[i+2]+TG[i+6] == 'WS'| TG[i+2]+TG[i+6] == 'SW'){
+				positions = [i+2, i+6]
+				foundIt(positions);
+			}else if(TG[i+6]+TG[i+10] == 'WS'| TG[i+6]+TG[i+10] == 'SW'){
+				positions = [i+6, i+10]
+				foundIt(positions);
+			}else if(TG[i+10]+TG[i+14] == 'WS'| TG[i+10]+TG[i+14] == 'SW'){
+				positions = [i+10, i+14]
+				foundIt(positions);
+			}else if(TG[i+3]+TG[i+7] == 'WS'| TG[i+3]+TG[i+7] == 'SW'){
+				positions = [i+3, i+7]
+				foundIt(positions);
+			}else if(TG[i+7]+TG[i+11] == 'WS'| TG[i+7]+TG[i+11] == 'SW'){
+				positions = [i+7, i+11]
+				foundIt(positions);
+			}else if(TG[i+11]+TG[i+15] == 'WS'| TG[i+11]+TG[i+15] == 'SW'){
+				positions = [i+11, i+15]
+				foundIt(positions);
+			}
+
+		
+
+
 		}
 	}
 }
