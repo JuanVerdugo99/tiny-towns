@@ -11,7 +11,45 @@
 <body onload="check()">
 
     <div class="grid">        
-        <div class="game-info"">
+
+        <div class="centerDiv">
+            <img src="img/logo.png" alt="" class="logo">
+            <button class="masterConst">Maestro Constructor</button>
+            <p class="masterInfo">Sí deseas construir tu edificio o monumento dale click al boton Maestro Constructor</p>
+        </div>
+
+        <div class="game-container">
+            <script>
+                let idCard = 0;
+                for (var row = 0; row <= 3; row++) {
+
+                    for (var col = 0; col <= 3; col++) {
+                        document.writeln(`
+                        <div class="card">
+                            <div onclick="putResource(${idCard});" class="card card-face" id="box_`+ row + `_` + col + `" >
+                                <img src="img/bush.png" class="bush bush-top-left">
+                                <img src="img/bush.png" class="bush bush-top-right">
+                                <img class="" src="" id="${idCard}">
+                                <img src="img/bush.png" class="bush bush-bottom-left">
+                                <img src="img/bush.png" class="bush bush-bottom-right">
+                            </div>
+                        </div>`);
+                        idCard++;
+                    }
+                }
+            </script>
+        </div>
+
+        <div class="game-info">
+            <div class="resources game-info-container">
+                <div class="game-info2">
+                    <span class="centerSpan">Recursos:</span> 
+                    <span onclick="chooseResource('resourceDisplay1')" id="resourceDisplay1"></span>
+                    <span onclick="chooseResource('resourceDisplay2')" id="resourceDisplay2"></span>
+                    <span onclick="chooseResource('resourceDisplay3')" id="resourceDisplay3"></span>
+                </div>
+            </div>
+            
             <p>Escoge sabiamente los recursos. Al elegir uno tendras que ponerlo forzosamente en el tablero</p>
             <br><br>
             <a href="#miModal">
@@ -43,38 +81,8 @@
             </a>-->
 
             <p class="info-card">Dale click a una de click a una de las cartas para saber más de ella</p>
-
-            <div class="resources game-info-container">
-                <div class="game-info2">
-                    <span class="centerSpan">Recursos:</span> 
-                    <span onclick="chooseResource('resourceDisplay1')" id="resourceDisplay1"></span>
-                    <span onclick="chooseResource('resourceDisplay2')" id="resourceDisplay2"></span>
-                    <span onclick="chooseResource('resourceDisplay3')" id="resourceDisplay3"></span>
-                </div>
-            </div>
         </div>
 
-        <div class="game-container">
-            <script>
-                let idCard = 0;
-                for (var row = 0; row <= 3; row++) {
-
-                    for (var col = 0; col <= 3; col++) {
-                        document.writeln(`
-                        <div class="card">
-                            <div onclick="putResource(${idCard});" class="card card-face" id="box_`+ row + `_` + col + `" >
-                                <img src="img/bush.png" class="bush bush-top-left">
-                                <img src="img/bush.png" class="bush bush-top-right">
-                                <img class="" src="" id="${idCard}">
-                                <img src="img/bush.png" class="bush bush-bottom-left">
-                                <img src="img/bush.png" class="bush bush-bottom-right">
-                            </div>
-                        </div>`);
-                        idCard++;
-                    }
-                }
-            </script>
-        </div>
 
         <div id="miModal" class="modal">
             <div class="modal-contenido">
@@ -92,11 +100,6 @@
             </div>
         </div>
 
-        <div class="centerDiv" style="margin-left: 40px;">
-            <img src="img/logo.png" alt="" class="logo">
-            <button class="masterConst">Maestro Constructor</button>
-            <p class="masterInfo">Sí deseas construir tu edificio o monumento dale click al boton Maestro Constructor</p>
-        </div>
     </div>
 
 
