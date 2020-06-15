@@ -109,8 +109,8 @@ function putResource(idCard) {
 			if (resource == 'wheat') {
 				tableGame[idCard] = 'T';
 			}
-			checkTheTableGame();
 			resource = null;
+			checkTheTableGame();
 		} else {
 			alert('Ya hay un recurso aqui.');
 		}
@@ -140,27 +140,39 @@ function checkTheTableGame() {
 }
 
 function foundIt(positions) {
-	for (let index = 0; index <= positions.length; index++) {
+	for (let index = 0; index < 3; index++) {
+		console.log(positions[index])
 		document.getElementById(`box_${positions[index]}`).classList.add('found');
 	}
-	buildings[buildCount] = positions;
+	buildings[buildCount] = JSON.stringify(positions);
+	buildCount++;
+	console.log(buildings);
 }
 
-var buildings;
+var buildings = [];
 var buildCount = 0;
 function checkGreens(exec) {
 	let TG = tableGame;
 	let length = exec[0].length;
 	let positions;
+	let bandera = false;
 	if (length == 6) {
 		// Horizontal
 		for (let i = 0; i <= TG.length; i += 4) {
 			if (TG[i]+TG[i+1]+TG[i+2] == 'GSS'| TG[i]+TG[i+1]+TG[i+2] == 'SSG') {
 				positions = [i, i+1, i+2];
-				console.log(positions);
+				if(JSON.stringify(buildings).includes(JSON.stringify(positions))){
+					console.log('Ya esta');
+				}else{
+					foundIt(positions);
+				}
 			}else if(TG[i+1]+TG[i+2]+TG[i+3] == 'GSS'| TG[i+1]+TG[i+2]+TG[i+3] == 'SSG'){
 				positions = [i+1, i+2, i+3]
-				foundIt(positions);
+				if(JSON.stringify(buildings).includes(JSON.stringify(positions))){
+					console.log('Ya esta');
+				}else{
+					foundIt(positions);
+				}
 			}
 		}
 	}else {
@@ -168,10 +180,14 @@ function checkGreens(exec) {
 		for (let i = 0; i < 4; i++) {
 			if (TG[i]+TG[i+4]+TG[i+8] == 'GSS'| TG[i]+TG[i+4]+TG[i+8] == 'SSG') {
 				positions = [i, i+4, i+8];
-				console.log(positions);
+				if(JSON.stringify(buildings).includes(JSON.stringify(positions))){
+					console.log('Ya esta');
+				}else{
+					foundIt(positions);
+				}
 			}else if(TG[i+4]+TG[i+8]+TG[i+12] == 'GSS'| TG[i+4]+TG[i+8]+TG[i+12] == 'SSG'){
 				positions = [i+4, i+8, i+12]
-				foundIt(positions);
+				searchingPosition(positions)
 			}
 		}
 	}
@@ -275,4 +291,15 @@ function checkGrays(exec) {
 
 function build() {
 	
+function searchingPosition(positions) {
+	for (const build of buildings) {
+		
+	}
+	if(JSON.stringify(buildings).includes(JSON.stringify(positions))){
+		console.log('Ya esta');
+	}else{
+		foundIt(positions);
+	}
+}
+
 }
