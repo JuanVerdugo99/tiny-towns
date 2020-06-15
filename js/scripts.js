@@ -119,6 +119,7 @@ function putResource(idCard) {
 	}
 }
 
+let search;
 function checkTheTableGame() {
 	let newTableGame = '-';
 	for (let x = 0; x < tableGame.length; x++) {
@@ -127,5 +128,50 @@ function checkTheTableGame() {
 			newTableGame += '-';
 		}
 	}
-	console.log(almshouseH.test(newTableGame));
+	search = almshouseH.exec(newTableGame);
+	if (search) {
+		checkGreens(search);
+	}
+}
+
+function foundIt(positions) {
+	for (let index = 0; index <= positions.length; index++) {
+		document.getElementById(`box_${positions[index]}`).classList.add('found');
+	}
+	buildings[buildCount] = positions;
+}
+
+var buildings;
+var buildCount = 0;
+function checkGreens(exec) {
+	let TG = tableGame;
+	let length = exec[0].length;
+	let positions;
+	if (length == 6) {
+		// Horizontal
+		for (let i = 0; i <= TG.length; i += 4) {
+			if (TG[i]+TG[i+1]+TG[i+2] == 'GSS'| TG[i]+TG[i+1]+TG[i+2] == 'SSG') {
+				positions = [i, i+1, i+2];
+				console.log(positions);
+			}else if(TG[i+1]+TG[i+2]+TG[i+3] == 'GSS'| TG[i+1]+TG[i+2]+TG[i+3] == 'SSG'){
+				positions = [i+1, i+2, i+3]
+				foundIt(positions);
+			}
+		}
+	}else {
+		// Vertical
+		for (let i = 0; i < 4; i++) {
+			if (TG[i]+TG[i+4]+TG[i+8] == 'GSS'| TG[i]+TG[i+4]+TG[i+8] == 'SSG') {
+				positions = [i, i+4, i+8];
+				console.log(positions);
+			}else if(TG[i+4]+TG[i+8]+TG[i+12] == 'GSS'| TG[i+4]+TG[i+8]+TG[i+12] == 'SSG'){
+				positions = [i+4, i+8, i+12]
+				foundIt(positions);
+			}
+		}
+	}
+}
+
+function build() {
+	
 }
